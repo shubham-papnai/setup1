@@ -1,258 +1,62 @@
- <!--KIWI - TODO LIST APP-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List App</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: #f5f5f5;
-            padding: 2rem;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .heading {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .input-section {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 1.5rem;
-        }
-
-        input[type="text"] {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background: #4CAF50;
-            color: white;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        button:hover {
-            background: #45a049;
-        }
-
-        .todos {
-            list-style: none;
-        }
-
-        .todo-item {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            background: #f8f8f8;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            transition: background 0.3s;
-        }
-
-        .todo-item:hover {
-            background: #f0f0f0;
-        }
-
-        .todo-item.completed {
-            background: #e8f5e9;
-        }
-
-        .actions {
-            margin-left: auto;
-            display: flex;
-            gap: 8px;
-        }
-
-        .delete-btn {
-            background: #ff4444;
-            padding: 6px 12px;
-        }
-
-        .delete-btn:hover {
-            background: #cc0000;
-        }
-
-        .delete-btn:active {
-            background: #aa0000;
-        }
-
-        .text {
-            margin-left: 10px;
-            flex: 1;
-        }
-
-        .text.completed {
-            text-decoration: line-through;
-            color: #666;
-        }
-
-        .complete-btn {
-            background: #00b894;
-            padding: 6px 12px;
-        }
-
-        .edit-form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-left: 40px;
-        }
-
-        .edit-btn {
-            background: #0984e3;
-            padding: 8px 15px;
-        }
-
-        .edit-btn:hover {
-            background: #0870b8;
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 1.5rem;
-            }
-
-            .input-section {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <title>Video Slide Canvas</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <div class="heading">
-            <h1>Todo List</h1>
+        <div class="navigation">
+            <button class="scene-tab editable" data-scene="1" data-text="Scene 1">Scene 1</button>
+            <button class="scene-tab editable" data-scene="2" data-text="Scene 2">Scene 2</button>
+            <button class="scene-tab editable" data-scene="3" data-text="Scene 3">Scene 3</button>
+            <button class="scene-tab editable" data-scene="4" data-text="Scene 4">Scene 4</button>
+            <button class="scene-tab editable" data-scene="5" data-text="Scene 5">Scene 5</button>
+            <button class="scene-tab editable" data-scene="6" data-text="Scene 6">Scene 6</button>
+            <button class="scene-tab editable" data-scene="7" data-text="Scene 7">Scene 7</button>
         </div>
-
-        <div class="input-section">
-            <input type="text" id="todoInput" placeholder="Add a new todo...">
-            <button onclick="addTodo()">Add Todo</button>
+        <div class="main-content">
+            <div class="sidebar">
+                <button class="part-btn editable active" data-part="1" data-text="Part 1">Part 1</button>
+                <button class="part-btn editable" data-part="2" data-text="Part 2">Part 2</button>
+                <button class="part-btn editable" data-part="3" data-text="Part 3">Part 3</button>
+                <button class="part-btn editable" data-part="4" data-text="Part 4">Part 4</button>
+                <button class="part-btn editable" data-part="5" data-text="Part 5">Part 5</button>
+                <button class="part-btn editable" data-part="6" data-text="Part 6">Part 6</button>
+                <button class="part-btn editable" data-part="7" data-text="Part 7">Part 7</button>
+                <button class="part-btn editable" data-part="8" data-text="Part 8">Part 8</button>
+            </div>
+            <div class="center-content">
+                <div class="image-container">
+                    <input type="file" id="imageUpload" accept="image/*" style="display: none">
+                    <input type="text" id="imageUrl" placeholder="Enter image URL" style="display: none">
+                    <img id="displayImage" src="image.jpg" alt="Person sitting">
+                    <button id="uploadButton">Upload Image</button>
+                </div>
+            </div>
+            <div class="right-panel editable" contenteditable="true">
+                <h3>Castor Oil</h3>
+                <ul>
+                    <li>½ spoon</li>
+                    <li>At night</li>
+                </ul>
+                <ol>
+                    <li>Warm it</li>
+                    <li>Mix it in water/milk</li>
+                    <li>Drink it</li>
+                </ol>
+                <h3>Results</h3>
+                <ol>
+                    <li>Colon Remains clean</li>
+                    <li>Lymphatic system gets active</li>
+                </ol>
+                <h3>Reason</h3>
+                <p>Greatic Level</p>
+            </div>
         </div>
-
-        <ul class="todos" id="todoList"></ul>
     </div>
-
-    <script>
-        let todos = [];
-
-        function saveTodo(text, id, completed) {
-            // Add new todo to the beginning of the array
-            todos.unshift({
-                id: id || Date.now(),
-                text: text,
-                completed: completed || false
-            });
-            renderTodos();
-        }
-
-        function deleteTodo(id) {
-            todos = todos.filter(todo => todo.id !== id);
-            renderTodos();
-        }
-
-        function toggleComplete(id) {
-            todos = todos.map(todo => {
-                if(todo.id === id) {
-                    return {...todo, completed: !todo.completed};
-                }
-                return todo;
-            });
-            renderTodos();
-        }
-
-        function editTodo(id) {
-            const todo = todos.find(todo => todo.id === id);
-            const todoItem = document.getElementById(`todo-${id}`);
-            
-            todoItem.innerHTML = `
-                <input type="text" 
-                       id="editInput-${id}" 
-                       value="${todo.text}"
-                       style="flex: 1; border: 1px solid #ddd; padding: 8px;">
-                <button class="edit-btn" onclick="updateTodo(${id})">Save</button>
-            `;
-        }
-
-        function updateTodo(id) {
-            const input = document.getElementById(`editInput-${id}`);
-            const text = input.value.trim();
-            if(text) {
-                todos = todos.map(todo => {
-                    if(todo.id === id) {
-                        return {...todo, text: text, completed: false};
-                    }
-                    return todo;
-                });
-                renderTodos();
-            }
-        }
-
-        function renderTodos() {
-            const todoList = document.getElementById('todoList');
-            todoList.innerHTML = '';
-
-            todos.forEach(todo => {
-                const todoItem = document.createElement('li');
-                todoItem.className = `todo-item${todo.completed ? ' completed' : ''}`;
-                todoItem.id = `todo-${todo.id}`;
-                todoItem.innerHTML = `
-                    <input type="checkbox" 
-                           ${todo.completed ? 'checked' : ''}
-                           onchange="toggleComplete(${todo.id})">
-                    <span class="text${todo.completed ? ' completed' : ''}">${todo.text}</span>
-                    <div class="actions">
-                        <button class="edit-btn" onclick="editTodo(${todo.id})">Edit</button>
-                        <button class="delete-btn" onclick="deleteTodo(${todo.id})">Delete</button>
-                    </div>
-                `;
-                todoList.appendChild(todoItem);
-            });
-        }
-
-        function addTodo() {
-            const todoInput = document.getElementById('todoInput');
-            const text = todoInput.value.trim();
-            if(text) {
-                saveTodo(text);
-                todoInput.value = '';
-            }
-        }
-
-        // Handle Enter key press
-        document.getElementById('todoInput').addEventListener('keypress', function(e) {
-            if(e.key === 'Enter') {
-                addTodo();
-            }
-        });
-
-        // Initial render
-        renderTodos();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
